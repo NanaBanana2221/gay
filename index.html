@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Forever Us</title>
+  <title>Nosso Amor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -11,45 +11,66 @@
       background: linear-gradient(to bottom, #0f0f1a, #1c1c2e);
       color: white;
       text-align: center;
-    }
-
-    .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
     button {
-      padding: 12px 25px;
-      font-size: 1rem;
+      padding: 15px 30px;
+      font-size: 1.2rem;
       border: none;
-      background: #ff4d6d;
+      border-radius: 25px;
+      background-color: #ff4d6d;
       color: white;
       cursor: pointer;
-      border-radius: 25px;
       transition: 0.3s;
     }
 
     button:hover {
-      background: #ff1e4d;
+      background-color: #ff1e4d;
+    }
+
+    .photos {
+      display: none; /* Começa escondido */
+      margin-top: 50px;
+    }
+
+    .photos img {
+      width: 300px;
+      border-radius: 15px;
+      margin: 15px;
+      transition: transform 0.3s;
+    }
+
+    .photos img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <h1>Out of billions of people… I found you.</h1>
-    <button onclick="window.location='rickroll.html'">
-      olha esta cena gay
-    </button>
+  <button id="showPhotosBtn">olha esta cena gay</button>
+
+  <div class="photos" id="photosContainer">
+    <img src="https://via.placeholder.com/300?text=Foto+1" alt="Foto 1">
+    <img src="https://via.placeholder.com/300?text=Foto+2" alt="Foto 2">
+    <img src="https://via.placeholder.com/300?text=Foto+3" alt="Foto 3">
+    <img src="https://via.placeholder.com/300?text=Foto+4" alt="Foto 4">
   </div>
+
+  <script>
+    const btn = document.getElementById('showPhotosBtn');
+    const photos = document.getElementById('photosContainer');
+
+    btn.addEventListener('click', () => {
+      photos.style.display = 'flex';
+      photos.style.flexWrap = 'wrap';
+      btn.style.display = 'none'; // esconde o botão depois de clicar
+    });
+  </script>
 
 </body>
 </html>
