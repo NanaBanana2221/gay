@@ -44,11 +44,14 @@
       width: 300px;
       border-radius: 15px;
       margin: 15px;
-      transition: transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .photos img:hover {
-      transform: scale(1.05);
+    .photos img.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -57,20 +60,29 @@
   <button id="showPhotosBtn">olha esta cena gay</button>
 
   <div class="photos" id="photosContainer">
-    <img src="https://via.placeholder.com/300?text=Foto+1" alt="Foto 1">
-    <img src="https://via.placeholder.com/300?text=Foto+2" alt="Foto 2">
-    <img src="https://via.placeholder.com/300?text=Foto+3" alt="Foto 3">
-    <img src="https://via.placeholder.com/300?text=Foto+4" alt="Foto 4">
+    <img src="images/Foto1.jpg" alt="Foto 1">
+    <img src="images/Foto2.jpg" alt="Foto 2">
+    <img src="images/Foto3.jpg" alt="Foto 3">
+    <img src="images/Foto4.jpg" alt="Foto 4">
+    <img src="images/Foto5.jpg" alt="Foto 5">
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const btn = document.getElementById("showPhotosBtn");
       const photos = document.getElementById("photosContainer");
+      const photoImgs = photos.querySelectorAll("img");
 
       btn.addEventListener("click", function() {
-        photos.style.display = "flex";
+        photos.style.display = "flex"; // mostra o container
         btn.style.display = "none"; // esconde o botão
+
+        // Faz aparecer as fotos com efeito fade-in sequencial
+        photoImgs.forEach((img, index) => {
+          setTimeout(() => {
+            img.classList.add("show");
+          }, index * 200); // 200ms entre cada foto
+        });
       });
     });
   </script>
