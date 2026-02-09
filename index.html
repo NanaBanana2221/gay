@@ -67,8 +67,6 @@
     <img src="images/Foto5.jpeg" alt="Foto 5">
   </div>
 
-  </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const btn = document.getElementById("showPhotosBtn");
@@ -81,13 +79,4 @@
 
         // Faz aparecer as fotos com efeito fade-in sequencial
         photoImgs.forEach((img, index) => {
-          setTimeout(() => {
-            img.classList.add("show");
-          }, index * 200); // 200ms entre cada foto
-        });
-      });
-    });
-  </script>
-
-</body>
-</html>
+          setTimeout(() 
