@@ -36,6 +36,8 @@
     .photos {
       display: none; /* Começa escondido */
       margin-top: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .photos img {
@@ -62,13 +64,14 @@
   </div>
 
   <script>
-    const btn = document.getElementById('showPhotosBtn');
-    const photos = document.getElementById('photosContainer');
+    document.addEventListener("DOMContentLoaded", function() {
+      const btn = document.getElementById("showPhotosBtn");
+      const photos = document.getElementById("photosContainer");
 
-    btn.addEventListener('click', () => {
-      photos.style.display = 'flex';
-      photos.style.flexWrap = 'wrap';
-      btn.style.display = 'none'; // esconde o botão depois de clicar
+      btn.addEventListener("click", function() {
+        photos.style.display = "flex";
+        btn.style.display = "none"; // esconde o botão
+      });
     });
   </script>
 
