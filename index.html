@@ -33,34 +33,25 @@
       background-color: #ff1e4d;
     }
 
-   .photos {
-  display: flex; /* AGORA fica sempre visível */
-  margin-top: 50px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+    .photos {
+      display: flex;           /* por agora, SEM botão, sempre visível */
+      margin-top: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     .photos img {
       width: 300px;
       border-radius: 15px;
       margin: 15px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .photos img.show {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <button id="showPhotosBtn">olha esta cena gay</button>
+  <h1>olha esta cena gay</h1>
 
-  <div class="photos" id="photosContainer">
+  <div class="photos">
     <img src="images/Foto1.jpeg" alt="Foto 1">
     <img src="images/Foto2.jpeg" alt="Foto 2">
     <img src="images/Foto3.jpeg" alt="Foto 3">
@@ -68,16 +59,5 @@
     <img src="images/Foto5.jpeg" alt="Foto 5">
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const btn = document.getElementById("showPhotosBtn");
-      const photos = document.getElementById("photosContainer");
-      const photoImgs = photos.querySelectorAll("img");
-
-      btn.addEventListener("click", function() {
-        photos.style.display = "flex"; // mostra o container
-        btn.style.display = "none"; // esconde o botão
-
-        // Faz aparecer as fotos com efeito fade-in sequencial
-        photoImgs.forEach((img, index) => {
-          setTimeout(() 
+</body>
+</html>
