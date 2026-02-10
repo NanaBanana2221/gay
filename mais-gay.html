@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Ainda mais gay</title>
+  <title>Final</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
@@ -13,58 +13,31 @@
 
     body {
       height: 100vh;
-      background: linear-gradient(135deg, #fdfdfd 0%, #fffdf7 100%);
-      font-family: 'Georgia', serif;
       overflow: hidden;
+      font-family: 'Georgia', serif;
       position: relative;
     }
 
-    /* ESTRELAS CRAYON */
-    .stars {
-      position: absolute;
+    /* VÍDEO DE FUNDO */
+    .video-bg {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      object-fit: cover;
+      z-index: 1;
     }
 
-    .star {
-      position: absolute;
-      width: clamp(20px, 4vw, 40px);
-      height: clamp(20px, 4vw, 40px);
-      background: #ffc107;
-      clip-path: polygon(
-        50% 0%, 
-        61% 35%, 
-        98% 35%, 
-        68% 57%, 
-        79% 91%, 
-        50% 70%, 
-        21% 91%, 
-        32% 57%, 
-        2% 35%, 
-        39% 35%
-      );
-      border-radius: 50% 20% 30% 10% / 40% 25% 60% 15%;
-      filter: drop-shadow(2px 2px 4px rgba(255,193,7,0.3));
-      animation: crayonFloat 4s ease-in-out infinite;
-      opacity: 0.85;
-    }
-
-    @keyframes crayonFloat {
-      0%, 100% { 
-        opacity: 0.7; 
-        transform: translateY(0px) rotate(0deg) scale(1); 
-      }
-      33% { 
-        opacity: 0.9; 
-        transform: translateY(-8px) rotate(120deg) scale(1.1); 
-      }
-      66% { 
-        opacity: 0.8; 
-        transform: translateY(-4px) rotate(240deg) scale(0.95); 
-      }
+    /* OVERLAY BRANCO */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.75);
+      z-index: 2;
     }
 
     /* CONTEÚDO */
@@ -73,10 +46,67 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 2;
+      z-index: 3;
       text-align: center;
-      max-width: 80%;
+      max-width: 85%;
       padding: 20px;
     }
 
-    .content 
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      background: linear-gradient(45deg, #ff4d6d, #ff6b9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: clamp(1rem, 3vw, 1.6rem);
+      color: #333;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    .btn-back {
+      padding: 18px 40px;
+      background: linear-gradient(45deg, #ff4d6d, #ff6b9d);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255,77,109,0.4);
+      transition: all 0.3s;
+    }
+
+    .btn-back:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,77,109,0.6);
+    }
+
+    @media (max-width: 768px) {
+      .content { max-width: 95%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VÍDEO DE FUNDO -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="images/estrelas-video.mp4" type="video/mp4">
+  </video>
+
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- CONTEÚDO -->
+  <div class="content">
+    <h1>✨ Te amo muito ✨</h1>
+    <p>Okay agora algo um bocadinho mais gay que tu... 
+       mas o meu coração é todo teu ❤️</p>
+    <a href="index.html" class="btn-back">Voltar atrás</a>
+  </div>
+
+</body>
+</html>
