@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Gay</title>
+  <title>Nosso Amor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -27,14 +27,19 @@
       color: white;
       cursor: pointer;
       transition: 0.3s;
+      margin: 10px;
     }
 
     button:hover {
       background-color: #ff1e4d;
     }
 
+    .nextBtn {
+      display: none;  /* começa escondido */
+    }
+
     .photos {
-      display: none;          /* começa escondido */
+      display: none;
       margin-top: 50px;
       flex-wrap: wrap;
       justify-content: center;
@@ -57,7 +62,7 @@
 </head>
 <body>
 
-    <button id="showPhotosBtn">olha esta cena gay</button>
+  <button id="showPhotosBtn">olha esta cena gay</button>
 
   <div class="photos" id="photosContainer">
     <img src="images/Foto1.jpeg" alt="Foto 1">
@@ -67,8 +72,7 @@
     <img src="images/Foto5.jpeg" alt="Foto 5">
   </div>
 
-  <!-- NOVO BOTÃO AQUI -->
-  <button onclick="location.href='mais-gay.html'" style="margin-top: 30px;">
+  <button class="nextBtn" onclick="location.href='mais-gay.html'">
     Okay agora algo um bocadinho mais gay que tu
   </button>
 
@@ -78,15 +82,16 @@
     const photoImgs = photos.querySelectorAll("img");
 
     btn.addEventListener("click", function() {
-      photos.style.display = "flex";   // mostra o container
-      btn.style.display = "none";      // esconde o botão
-
-      // Faz aparecer as fotos com efeito fade-in sequencial
+      photos.style.display = "flex";   
+      btn.style.display = "none";      
+      
       photoImgs.forEach((img, index) => {
         setTimeout(() => {
           img.classList.add("show");
-        }, index * 200); // 200ms entre cada foto
+        }, index * 200);
       });
+      
+      document.querySelector('.nextBtn').style.display = 'block';
     });
   </script>
 
