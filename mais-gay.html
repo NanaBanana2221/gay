@@ -13,13 +13,13 @@
 
     body {
       height: 100vh;
-      background: #fdfdfd;
+      background: linear-gradient(135deg, #fdfdfd 0%, #fffdf7 100%);
       font-family: 'Georgia', serif;
       overflow: hidden;
       position: relative;
     }
 
-    /* ESTRELAS CRAYOLA */
+    /* ESTRELAS CRAYON */
     .stars {
       position: absolute;
       top: 0;
@@ -31,20 +31,39 @@
 
     .star {
       position: absolute;
-      color: #ffc107;
-      font-size: clamp(1.2rem, 2vw, 2rem);
-      text-shadow: 1px 1px 2px rgba(255,193,7,0.3);
-      animation: float 6s ease-in-out infinite;
+      width: clamp(20px, 4vw, 40px);
+      height: clamp(20px, 4vw, 40px);
+      background: #ffc107;
+      clip-path: polygon(
+        50% 0%, 
+        61% 35%, 
+        98% 35%, 
+        68% 57%, 
+        79% 91%, 
+        50% 70%, 
+        21% 91%, 
+        32% 57%, 
+        2% 35%, 
+        39% 35%
+      );
+      border-radius: 50% 20% 30% 10% / 40% 25% 60% 15%;
+      filter: drop-shadow(2px 2px 4px rgba(255,193,7,0.3));
+      animation: crayonFloat 4s ease-in-out infinite;
+      opacity: 0.85;
     }
 
-    @keyframes float {
+    @keyframes crayonFloat {
       0%, 100% { 
-        opacity: 0.6; 
-        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.7; 
+        transform: translateY(0px) rotate(0deg) scale(1); 
       }
-      50% { 
-        opacity: 1; 
-        transform: translateY(-10px) rotate(180deg); 
+      33% { 
+        opacity: 0.9; 
+        transform: translateY(-8px) rotate(120deg) scale(1.1); 
+      }
+      66% { 
+        opacity: 0.8; 
+        transform: translateY(-4px) rotate(240deg) scale(0.95); 
       }
     }
 
@@ -57,79 +76,7 @@
       z-index: 2;
       text-align: center;
       max-width: 80%;
+      padding: 20px;
     }
 
-    .content h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      background: linear-gradient(45deg, #ff4d6d, #ff6b9d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 20px;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { filter: drop-shadow(0 0 5px rgba(255,77,109,0.5)); }
-      to { filter: drop-shadow(0 0 20px rgba(255,77,109,0.8)); }
-    }
-
-    .content p {
-      font-size: clamp(1rem, 3vw, 1.6rem);
-      color: #555;
-      margin-bottom: 40px;
-      line-height: 1.5;
-    }
-
-    .btn-back {
-      padding: 18px 40px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #ff4d6d, #ff6b9d);
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(255,77,109,0.4);
-    }
-
-    .btn-back:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(255,77,109,0.6);
-    }
-
-    @media (max-width: 768px) {
-      .content { padding: 20px; }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="stars" id="stars"></div>
-
-  <div class="content">
-    <h1>✨ Te amo muito ✨</h1>
-    <p>Okay agora algo um bocadinho mais gay que tu... 
-       mas o meu coração é todo teu ❤️</p>
-    <a href="index.html" class="btn-back">Voltar atrás</a>
-  </div>
-
-  <script>
-    // 80 ESTRELAS ALEATÓRIAS
-    const starsContainer = document.getElementById('stars');
-    for(let i = 0; i < 80; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.innerHTML = '⭐';
-      star.style.left = Math.random() * 100 + '%';
-      star.style.top = Math.random() * 100 + '%';
-      star.style.animationDelay = `-${Math.random() * 6}s`;
-      star.style.animationDuration = (3 + Math.random() * 4) + 's';
-      starsContainer.appendChild(star);
-    }
-  </script>
-
-</body>
-</html>
-
+    .content 
