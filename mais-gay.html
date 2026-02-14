@@ -3,6 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Love u</title>
+   <script>
+    window.onload = function() {
+      console.log("🔍 DEBUG FOTOS:");
+      console.log("Procurando: images/foto-esquerda.jpge");
+      const img1 = new Image();
+      img1.src = "images/foto-esquerda.jpge";
+      img1.onload = () => console.log("✅ foto-esquerda.jpge = OK");
+      img1.onerror = () => console.log("❌ foto-esquerda.jpge = NÃO ENCONTRADA");
+      
+      const img2 = new Image();
+      img2.src = "images/foto-direita.jpge";
+      img2.onload = () => console.log("✅ foto-direita.jpge = OK");
+      img2.onerror = () => console.log("❌ foto-direita.jpge = NÃO ENCONTRADA");
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
